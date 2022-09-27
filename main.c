@@ -877,6 +877,14 @@ int main() {
     print_bin(getbits(0b11100, 4, 3));
     printf("\n\n");
 
+
+    // EXERCISE 2-6
+    printf("\n\n");
+    printf("EXERCISE 2-6\n");
+    printf("");
+    printf("");
+    printf("\n\n");
+
     printf("");
     printf("");
     printf("");
