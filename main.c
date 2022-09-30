@@ -103,6 +103,10 @@ void print_bin(unsigned int integer);
 /* getbits: get n bits from position p  */
 unsigned getbits(unsigned x, int p, int n);
 
+// The function definition used in EXERCISE 2-6
+/* setbits: set n bits of x at position p with bits of y  */
+unsigned setbits(unsigned x, int p, int n, unsigned y);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
@@ -881,8 +885,17 @@ int main() {
     // EXERCISE 2-6
     printf("\n\n");
     printf("EXERCISE 2-6\n");
-    printf("");
-    printf("");
+    printf("Write a function setbits(x, p, n, y) that returns x with the n bits that begin at position p set to\n");
+    printf("the rightmost n bits of y, leaving the other bits unchanged.\n");
+    printf("\n\n");
+
+    int q = 0b1000111;
+    int r = 0b111;
+    int setBitsResult = setbits(q, 5, 3, r);
+
+    printf("Let's see an example:\nIf x = 1000111 and y = 111, using the setbits function will have the effect of ");
+    printf("filling in the zero-bits in value x with 1-bits.\nThe result is 1111111.\n\nResult:\n");
+    print_bin(setBitsResult);
     printf("\n\n");
 
     printf("");
@@ -1126,4 +1139,13 @@ void print_bin(unsigned int integer)
 unsigned getbits(unsigned x, int p, int n)
 {
     return (x >> (p + 1 - n)) & ~(~0 << n);
+}
+
+
+
+// The function definition used in EXERCISE 2-6
+/* setbits: set n bits of x at position p with bits of y  */
+unsigned setbits(unsigned x, int p, int n, unsigned y)
+{
+    return x & ~(~(~0 << n) << (p + 1 -n)) | (y & ~(~0 << n)) << (p + 1 -n);
 }
