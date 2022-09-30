@@ -107,6 +107,10 @@ unsigned getbits(unsigned x, int p, int n);
 /* setbits: set n bits of x at position p with bits of y  */
 unsigned setbits(unsigned x, int p, int n, unsigned y);
 
+// The function definition used in EXERCISE 2-7
+/* invert: inverts the n bits of x that begin at position p  */
+unsigned invert(unsigned x, int p, int n);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
@@ -898,6 +902,31 @@ int main() {
     print_bin(setBitsResult);
     printf("\n\n");
 
+
+
+    // EXERCISE 2-7
+    printf("\n\n");
+    printf("EXERCISE 2-7\n");
+    printf("Write a function invert(x, p, n) that returns x with the n bits that begin at position p inverted \n");
+    printf("(i.e., 1 changed into 0 and vice versa), leaving others unchanged.\n");
+    printf("\n\n");
+
+    int u = 0b1111000011110000;
+    int invertResult = invert(u, 11, 4);
+
+    printf("Let's see an example:\nIf x = 1111 0000 1111 0000, we can use the invert() function to bit flip either ");
+    printf("the zero-bits or the one-bits.\n\nLet's flip the zero bits at bit positions 8 - 11 first.\n");
+    printf("Result:\n");
+    print_bin(invertResult);
+    printf("\n\n");
+
+    invertResult = invert(u, 7, 4);
+
+    printf("Let's see another example:\n");
+    printf("Let's flip the 1-bits at bit positions 4-7 to see the opposite inversion.\n");
+    print_bin(invertResult);
+    printf("\n\n");
+
     printf("");
     printf("");
     printf("");
@@ -1148,4 +1177,13 @@ unsigned getbits(unsigned x, int p, int n)
 unsigned setbits(unsigned x, int p, int n, unsigned y)
 {
     return x & ~(~(~0 << n) << (p + 1 -n)) | (y & ~(~0 << n)) << (p + 1 -n);
+}
+
+
+
+// The function definition used in EXERCISE 2-7
+/* invert: inverts the n bits of x that begin at position p  */
+unsigned invert(unsigned x, int p, int n)
+{
+    return x ^ (~(~0 << n) << (p + 1 -n));
 }
