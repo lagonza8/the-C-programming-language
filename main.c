@@ -111,6 +111,14 @@ unsigned setbits(unsigned x, int p, int n, unsigned y);
 /* invert: inverts the n bits of x that begin at position p  */
 unsigned invert(unsigned x, int p, int n);
 
+// The function definition used in EXERCISE 2-8
+/* rightrot: rotate x to the right by n positions  */
+unsigned rightrot(unsigned x, int n);
+
+// The function definition used in EXERCISE 2-8
+/* wordlength: computes word length of the machine  */
+int wordlength(void);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
@@ -927,6 +935,35 @@ int main() {
     print_bin(invertResult);
     printf("\n\n");
 
+
+    // EXERCISE 2-8
+    printf("\n\n");
+    printf("EXERCISE 2-8\n");
+    printf("Write a function rightrot(x, n) that returns the value of the integer x rotated to the right \n");
+    printf("by n bit positions.\n");
+    printf("\n\n");
+
+    printf("This function should create the effect of a moving chiron on a news channel repeating itself.\n");
+    printf("If x = 1111 0000 1111 0000, we can use the function rightrot(x, n) to create this rotating effect.\n");
+    printf("\n\n");
+
+    print_bin(rightrot(u, 1));
+    printf("\n\n");
+    print_bin(rightrot(u, 2));
+    printf("\n\n");
+    print_bin(rightrot(u, 3));
+    printf("\n\n");
+    print_bin(rightrot(u, 4));
+    printf("\n\n");
+    print_bin(rightrot(u, 5));
+    printf("\n\n");
+    print_bin(rightrot(u, 6));
+    printf("\n\n");
+    print_bin(rightrot(u, 7));
+    printf("\n\n");
+    print_bin(rightrot(u, 8));
+    printf("\n\n");
+
     printf("");
     printf("");
     printf("");
@@ -1186,4 +1223,37 @@ unsigned setbits(unsigned x, int p, int n, unsigned y)
 unsigned invert(unsigned x, int p, int n)
 {
     return x ^ (~(~0 << n) << (p + 1 -n));
+}
+
+
+// The function definition used in EXERCISE 2-8
+/* rightrot: rotate x to the right by n positions  */
+unsigned rightrot(unsigned x, int n)
+{
+
+    int wordlength(void);
+    int rbit;                   /* rightmost bit  */
+
+    while (n--  > 0) {
+        rbit = (x & 1) << (wordlength() - 1);
+        x = x >> 1;             /* shift x 1 position right  */
+        x = x | rbit;           /* complete one rotation  */
+    }
+
+    return x;
+}
+
+
+// The function definition used in EXERCISE 2-8
+/* wordlength: computes word length of the machine  */
+int wordlength(void)
+{
+    int i;
+
+    unsigned v = (unsigned) ~0;
+
+    for (i = 1; (v = v >> 1) > 0; i++)
+        ;
+
+    return i;
 }
