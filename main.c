@@ -986,14 +986,22 @@ int main() {
     printf("There are %d 1-bits in the binary value 1111 0000 1111 0000", bitcount(u));
     printf("\n\n");
 
-    printf("");
-    printf("");
-    printf("");
-    printf("");
+    printf("Declaring the argument x to be unsigned ensures that when it is right-shifted, vacated bits will be \n");
+    printf("filled with zeros, not sign bits, regardless of the machine the program is run on.\n");
+    printf("An assignment operator may even help a compiler to produce efficient code.\n");
+    printf("\n\n");
 
-    printf("");
-    printf("");
-    printf("");
+    printf("We have already seen that the assignment statement has a value and can occur in expressions;\n");
+    printf("The most common example is:\nwhile ((c = getchar()) != EOF)\n");
+    printf("In the test part of if, while, for, etc., \"true\" just means \"non-zero\".\n");
+    printf("\n\n");
+
+
+    printf("In all such expressions, the type of an assignment expression is the type of its left operand, and \n");
+    printf("the value is the value after the assignment.\n");
+    printf("\n\n");
+
+
     printf("");
 
     printf("");
