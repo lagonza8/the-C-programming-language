@@ -964,13 +964,16 @@ int main() {
     print_bin(rightrot(u, 8));
     printf("\n\n");
 
-    printf("");
-    printf("");
-    printf("");
-    printf("");
 
-    printf("");
-    printf("");
+    printf("\n\n");
+    printf("Expression such as, i = i + 2, in which the variable on the left hand side is repeated immediately \n");
+    printf("on the right, can be written in the compressed form, i += 2\n");
+    printf("The operator += is called an assignment operator.\n");
+    printf("\n\n");
+
+    printf("Most binary operators (operators like + that have a left and right operand) have a corresponding\n");
+    printf("assignment operator op=, where op is one of: + - * / %% << >> & ^ |\n");
+    printf("Notice that expressions like, x *= y + 1, means, x = x * (y + 1), rather than x = x * y + 1\n");
     printf("");
     printf("");
 
