@@ -119,6 +119,10 @@ unsigned rightrot(unsigned x, int n);
 /* wordlength: computes word length of the machine  */
 int wordlength(void);
 
+// The functions definition used in section 2.10
+/* bitcount: count 1 bits in x  */
+int bitcount(unsigned x);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
