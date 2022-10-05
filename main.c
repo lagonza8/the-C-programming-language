@@ -974,7 +974,11 @@ int main() {
     printf("Most binary operators (operators like + that have a left and right operand) have a corresponding\n");
     printf("assignment operator op=, where op is one of: + - * / %% << >> & ^ |\n");
     printf("Notice that expressions like, x *= y + 1, means, x = x * (y + 1), rather than x = x * y + 1\n");
-    printf("");
+    printf("\n\n");
+
+
+    printf("As an example, the function bitcount counts the number of 1-bits in its integer argument.\n");
+    printf("\n\n");
     printf("");
 
     printf("");
@@ -1259,4 +1263,17 @@ int wordlength(void)
         ;
 
     return i;
+}
+
+// The functions definition used in section 2.10
+/* bitcount: count 1 bits in x  */
+int bitcount(unsigned x)
+{
+    int b;  /* this will store the value of the number of 1-bits*/
+
+    /* right shift the value x until  you iterate over every bit  */
+    for (b = 0; x != 0; x >>= 1)
+        if (x & 01)     /* bit mask for everything but the rightmost bit  */
+            b++;        /* if the rightmost bit is a 1-bit, count it  */
+    return b;
 }
