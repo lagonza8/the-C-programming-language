@@ -981,8 +981,24 @@ int main() {
     printf("\n\n");
 
 
-    printf("As an example, the function bitcount counts the number of 1-bits in its integer argument.\n");
+    printf("As an example, the function bitcount counts the number of 1-bits in the argument.\n");
     printf("\n\n");
+    printf("There are %d 1-bits in the binary value 1111 0000 1111 0000", bitcount(u));
+    printf("\n\n");
+
+    printf("");
+    printf("");
+    printf("");
+    printf("");
+
+    printf("");
+    printf("");
+    printf("");
+    printf("");
+
+    printf("");
+    printf("");
+    printf("");
     printf("");
 
     printf("");
