@@ -119,6 +119,10 @@ unsigned rightrot(unsigned x, int n);
 /* wordlength: computes word length of the machine  */
 int wordlength(void);
 
+// The functions definition used in section 2.10
+/* bitcount: count 1 bits in x  */
+int bitcount(unsigned x);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
@@ -964,9 +968,46 @@ int main() {
     print_bin(rightrot(u, 8));
     printf("\n\n");
 
-    printf("");
-    printf("");
-    printf("");
+
+    //Section 2.10
+    /* */
+    printf("\n\n");
+    printf("Section 2.10 Assignment Operators and Expressions\n");
+    printf("\n\n");
+
+    printf("\n\n");
+    printf("Expression such as, i = i + 2, in which the variable on the left hand side is repeated immediately \n");
+    printf("on the right, can be written in the compressed form, i += 2\n");
+    printf("The operator += is called an assignment operator.\n");
+    printf("\n\n");
+
+    printf("Most binary operators (operators like + that have a left and right operand) have a corresponding\n");
+    printf("assignment operator op=, where op is one of: + - * / %% << >> & ^ |\n");
+    printf("Notice that expressions like, x *= y + 1, means, x = x * (y + 1), rather than x = x * y + 1\n");
+    printf("\n\n");
+
+
+    printf("As an example, the function bitcount counts the number of 1-bits in the argument.\n");
+    printf("\n\n");
+    printf("There are %d 1-bits in the binary value 1111 0000 1111 0000", bitcount(u));
+    printf("\n\n");
+
+    printf("Declaring the argument x to be unsigned ensures that when it is right-shifted, vacated bits will be \n");
+    printf("filled with zeros (logical shift), not sign bits, regardless of the machine the program is run on.\n");
+    printf("An assignment operator may even help a compiler to produce efficient code.\n");
+    printf("\n\n");
+
+    printf("We have already seen that the assignment statement has a value and can occur in expressions;\n");
+    printf("The most common example is:\nwhile ((c = getchar()) != EOF)\n");
+    printf("In the test part of if, while, for, etc., \"true\" just means \"non-zero\".\n");
+    printf("\n\n");
+
+
+    printf("In all such expressions, the type of an assignment expression is the type of its left operand, and \n");
+    printf("the value is the value after the assignment.\n");
+    printf("\n\n");
+
+
     printf("");
 
     printf("");
@@ -1256,4 +1297,17 @@ int wordlength(void)
         ;
 
     return i;
+}
+
+// The functions definition used in section 2.10
+/* bitcount: count 1 bits in x  */
+int bitcount(unsigned x)
+{
+    int b;  /* this will store the value of the number of 1-bits*/
+
+    /* right shift the value x until  you iterate over every bit  */
+    for (b = 0; x != 0; x >>= 1)
+        if (x & 01)     /* bit mask for everything but the rightmost bit  */
+            b++;        /* if the rightmost bit is a 1-bit, count it  */
+    return b;
 }
