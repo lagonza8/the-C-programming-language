@@ -969,6 +969,12 @@ int main() {
     printf("\n\n");
 
 
+    //Section 2.10
+    /* */
+    printf("\n\n");
+    printf("Section 2.10 Assignment Operators and Expressions\n");
+    printf("\n\n");
+
     printf("\n\n");
     printf("Expression such as, i = i + 2, in which the variable on the left hand side is repeated immediately \n");
     printf("on the right, can be written in the compressed form, i += 2\n");
@@ -987,7 +993,7 @@ int main() {
     printf("\n\n");
 
     printf("Declaring the argument x to be unsigned ensures that when it is right-shifted, vacated bits will be \n");
-    printf("filled with zeros, not sign bits, regardless of the machine the program is run on.\n");
+    printf("filled with zeros (logical shift), not sign bits, regardless of the machine the program is run on.\n");
     printf("An assignment operator may even help a compiler to produce efficient code.\n");
     printf("\n\n");
 
