@@ -1029,6 +1029,12 @@ int main() {
     printf("The trick is to use the following for loop - for (b = 0; x != 0; x &= x - 1)\n");
     printf("The rightmost 1-bit of x has a corresponding 0-bit in x - 1\n");
     printf("This subtraction operation is quick for your machine to process.\n");
+    printf("Any bit to the left of the rightmost 1-bit in x remains unchanged in the result.\n");
+    printf("Any 0-bit in x to the right of the rightmost 1-bit in x becomes a 1-bit in x - 1, which is why "
+           "it's an effective mask");
+    printf("\n\n");
+
+
     printf("Take the binary values x = 1111 0000 1111 0000, then (x - 1) = 1111 0000 1110 1111 and operator [&]\n");
     printf("x =     1111 0000 1111 0000\n");
     printf("x - 1 = 1111 0000 1110 1111 &\n");
