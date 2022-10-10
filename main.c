@@ -1053,6 +1053,21 @@ int main() {
     printf("Section 2.11 Conditional Expressions\n");
     printf("\n\n");
 
+    /*
+     * How to exit the Vim editor when falling in while committing code
+     *
+     * To exit Vim press Esc to exit edit mode, then type :q!
+     * reference: https://gist.github.com/Aaronshades/b2afaa35239c6e422e9441eef0c7c68b
+     *
+     * When entering VIM editor after typing: git commit -a
+     * Type i to switch into insert mode so that you can start adding your commit message and editing the file.
+     * Enter your commit message or modify the text with your file.
+     * Once you're done, press the escape key Esc to get out of insert mode and back to command mode.
+     * Type :wq to save and exit your file.
+     *
+     * */
+
+
     printf("");
     printf("");
     printf("");
