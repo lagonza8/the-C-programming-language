@@ -123,6 +123,10 @@ int wordlength(void);
 /* bitcount: count 1 bits in x  */
 int bitcount(unsigned x);
 
+// The function definition used in Exercise 2-9
+/* bitcountalt: count 1 bits in x - faster version  */
+int bitcountalt(unsigned x);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
@@ -1008,6 +1012,43 @@ int main() {
     printf("\n\n");
 
 
+    // EXERCISE 2-9
+    printf("\n\n");
+    printf("EXERCISE 2-9\n");
+    printf("In a two's complement number system, x &= (x-1) deletes the rightmost 1-bit in x.\n");
+    printf("Explain why. Use this observation to write a faster version of bit count.\n");
+    printf("\n\n");
+
+    u = 61680; // equivalent to 1111000011110000
+
+    printf("As an example, the function bitcountalt counts the number of 1-bits in the argument.\n");
+    printf("\n\n");
+    printf("There are %d 1-bits in the binary value 1111 0000 1111 0000", bitcountalt(u));
+    printf("\n\n");
+
+    printf("The trick is to use the following for loop - for (b = 0; x != 0; x &= x - 1)\n");
+    printf("The rightmost 1-bit of x has a corresponding 0-bit in x - 1\n");
+    printf("This subtraction operation is quick for your machine to process.\n");
+    printf("Any bit to the left of the rightmost 1-bit in x remains unchanged in the result.\n");
+    printf("Any 0-bit in x to the right of the rightmost 1-bit in x becomes a 1-bit in x - 1, which is why "
+           "it's an effective mask");
+    printf("\n\n");
+
+
+    printf("Take the binary values x = 1111 0000 1111 0000, then (x - 1) = 1111 0000 1110 1111 and operator [&]\n");
+    printf("x =     1111 0000 1111 0000\n");
+    printf("x - 1 = 1111 0000 1110 1111 &\n");
+    printf("        ----------------------\n");
+    printf("result  1111 0000 1110 0000\n");
+    printf("\n\n");
+
+    printf("The result is virtually identical to x, only the rightmost 1-bit in x changed to a 0-bit.\n");
+    printf("Every time you removed a rightmost 1-bit from x, you kept a counter, now return that value .\n");
+    printf("\n\n");
+
+    printf("");
+    printf("");
+    printf("");
     printf("");
 
     printf("");
@@ -1022,7 +1063,6 @@ int main() {
 
     return 0;
 }
-
 
 // The function definition used in Section 2.3
 /* string_length_function: return length of s  */
@@ -1307,7 +1347,27 @@ int bitcount(unsigned x)
 
     /* right shift the value x until  you iterate over every bit  */
     for (b = 0; x != 0; x >>= 1)
-        if (x & 01)     /* bit mask for everything but the rightmost bit  */
-            b++;        /* if the rightmost bit is a 1-bit, count it  */
+        if (x & 01)     /* bit mask for everything but the rightmost bit, evaluates to whatever the rightmost bit is in x  */
+            b++;        /* if the rightmost bit is a 1-bit, increment variable b, count it as 1-bit  */
+    return b;
+}
+
+// The function definition used in Exercise 2-9
+/* bitcountalt: count 1 bits in x - faster version  */
+int bitcountalt(unsigned x)
+{
+    int b;
+    //and then assign value in the for loop explicitly
+
+    for (b = 0; x != 0; x &= x - 1) {
+
+        //every time the assignment happens in the expression x &= x - 1, there is a new value assigned when evaluated.
+        //
+
+        // this method clears the last bit of the value x and increments the counter b by 1 every time
+        // it evaluates to a nonzero answer
+        ++b;
+    }
+
     return b;
 }
