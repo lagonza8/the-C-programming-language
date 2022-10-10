@@ -1046,6 +1046,13 @@ int main() {
     printf("Every time you removed a rightmost 1-bit from x, you kept a counter, now return that value .\n");
     printf("\n\n");
 
+
+    //Section 2.11
+    /* */
+    printf("\n\n");
+    printf("Section 2.11 Conditional Expressions\n");
+    printf("\n\n");
+
     printf("");
     printf("");
     printf("");
