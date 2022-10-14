@@ -127,6 +127,10 @@ int bitcount(unsigned x);
 /* bitcountalt: count 1 bits in x - faster version  */
 int bitcountalt(unsigned x);
 
+// The function prototype used in Exercise 2-10
+/* convert_lower_ternary: convert c to lower case (ASCII only)  */
+int convert_lower_ternary(int c);
+
 int main() {
 
     //CHAPTER 2: Types, Operators, and Expressions
@@ -1136,6 +1140,32 @@ int main() {
     printf("You have %d item%s.\n\n", n, n == 1 ? "" : "s");
 
     printf("This is better than printing \"You have X item(s)\", it is more personalized and careful.\n\n");
+
+    // EXERCISE 2-10
+    printf("\n\n");
+    printf("EXERCISE 2-10\n");
+    printf("Rewrite the function \'lower()\', which converts upper case letters to lower case, \n");
+    printf("with a conditional expression instead of if-else.\n");
+    printf("\n\n");
+
+    char L = 'L';
+    char G = 'G';
+
+    printf("The character, %c, with ASCII value %d, is converted to:\n\n", L, L);
+    printf("%c, which is ASCII value %d.\n\n", convert_lower_ternary(L), convert_lower_ternary(L));
+
+    printf("\n");
+
+    printf("The character, %c, with ASCII value %d, is converted to:\n\n", G, G);
+    printf("%c, which is ASCII value %d.\n\n", convert_lower_ternary(G), convert_lower_ternary(G));
+
+    printf("\n\n");
+
+    printf("");
+    printf("");
+    printf("");
+    printf("");
+
     printf("");
     printf("");
     printf("");
@@ -1454,4 +1484,11 @@ int bitcountalt(unsigned x)
     }
 
     return b;
+}
+
+// The function definition used in Exercise 2-10
+/* convert_lower_ternary: convert c to lower case (ASCII only)  */
+int convert_lower_ternary(int c)
+{
+    return (c >= 'A' && c <= 'Z') ? (c + 'a' - 'A') : c;
 }
