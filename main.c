@@ -1046,12 +1046,96 @@ int main() {
     printf("Every time you removed a rightmost 1-bit from x, you kept a counter, now return that value .\n");
     printf("\n\n");
 
-    printf("");
-    printf("");
-    printf("");
-    printf("");
 
-    printf("");
+    //Section 2.11
+    /* */
+    printf("\n\n");
+    printf("Section 2.11 Conditional Expressions\n");
+    printf("\n\n");
+
+    /*
+     * How to exit the Vim editor when falling in while committing code
+     * This happens when entering VIM editor after typing: git commit -a
+     *
+     * To exit Vim press Esc to exit edit mode, then type :q!
+     * reference: https://gist.github.com/Aaronshades/b2afaa35239c6e422e9441eef0c7c68b
+     *
+     * Type i to switch into insert mode so that you can start adding your commit message and editing the file.
+     * Enter your commit message or modify the text with your file.
+     * Once you're done, press the escape key Esc to get out of insert mode and back to command mode.
+     * Type :wq to save and exit your file.
+     *
+     * */
+
+    int a = 10;
+    int b = 5;
+    int z;
+
+    /* compute in z the maximum of a and b, a standard if-else statement  */
+    if (a > b)
+        z = a;
+    else
+        z = b;
+
+    printf("Take:\nif (a > b)\n\tz = a;\nelse\n\tz = b;\n\n");
+    printf("This would compute in z the maximum of a and b. But we could write it in a different way.\n\n");
+
+    printf("The CONDITIONAL EXPRESSION, written with the TERNARY OPERATOR \"?:\", provides an alternate way to \n");
+    printf("write an if-else block or similar constructions.\n\n");
+
+    printf("The format is:\n\nexpression(1) ? expression(2) : expression(3)\n\nThe expression, expression(1), is ");
+    printf("evaluated first. If it is non-zero (true), then the expression, expression(2), is evaluated, and \n");
+    printf("that is the value of the conditional expression. Otherwise expression(3) is evaluated, and that is the \n");
+    printf("value. Only one of expression(2) and expression(3) is evaluated.\n\n");
+    printf("Thus to set z to the maximum of a and b, where a = 10 and b = 5\n\nz = (a > b) ? a : b;\n\n");
+
+    z = (a > b) ? a : b;
+    printf("z = %d\n\n", z);
+
+    printf("The conditional expression is indeed an expression, and it can be used wherever any other expression can be.\n");
+    printf("The ternary operator is evaluated before the assignment like we would usually expect.\n\n");
+
+    printf("If expression(2) and expression(3) are of different types, the type of the result is determined by the ");
+    printf("conversion rules discussed earlier in this chapter.\n\n");
+    printf("For example, if f is a float and n is an int, then the expression\n\n(n > 0) ? f : n\n\n");
+    printf("is of type float regardless of whether n is positive.\n\n");
+
+    printf("Parentheses are not necessary around the first expression when using the ternary operator, they just \n");
+    printf("just make the condition part of the expression easier to see and are thus advisable anyway.\n\n");
+    printf("The conditional expression often leads to succinct code:\n\n");
+    printf("Take for example:\n\n"
+           "for (i = 0; i < n; i++)\n\t"
+           "printf(\"%%c%%c\", msg[i], (i%%10 == 9 || i == n - 1) ? \'\\n\' : \' \');\n\n");
+
+    printf("Remember that the array msg[] contains the string \"warning: \"\n\n");
+
+    int n = sizeof(msg);
+    //printf("%d\n", n);
+
+    printf("The result would be:\n\n");
+
+    for (i = 0; i < n; i++)
+        printf("%c%c", msg[i], (i%10 == 9 || i == n - 1) ? '\n' : ' ');
+
+    printf("\n\n");
+
+    printf("This loop prints n elements of an array, 10 per line, with each column separated by a blank space, \n");
+    printf("and with each line (including the last) terminated by a new line.\n");
+    printf("Or put another way, a new line is printed after every tenth element, and after the n-th. "
+           "All other elements are followed by one blank.\n\n");
+
+    printf("Another good example is:\n\n");
+    printf("printf(\"You have %%d item%%s.\\n\\n\", n, n == 1 ? \"\" : \"s\");\n\n");
+
+    printf("When n = 10, the output is:\n\n");
+
+    printf("You have %d item%s.\n\n", n, n == 1 ? "" : "s");
+
+    printf("Now make n = 1 to see the difference. The result is now:\n\n");
+    n = 1;
+    printf("You have %d item%s.\n\n", n, n == 1 ? "" : "s");
+
+    printf("This is better than printing \"You have X item(s)\", it is more personalized and careful.\n\n");
     printf("");
     printf("");
     printf("");
@@ -1226,7 +1310,7 @@ void strcat_ansi(char s[], char t[])
     while ((s[i++] = t[j++]) != '\0')
         ;
     /* As each character is copied from t to s, the postfix ++ is applied to both i and j to make sure that they are
-     * in position for the next pass through the loop   */
+     * used first, then incremented to be in position for the next pass through the loop   */
 
     printf("The result of the string concatenation function, using (BEEF, STU), is:\n%s\n", s);
 }
