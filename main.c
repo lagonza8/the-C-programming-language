@@ -1173,14 +1173,14 @@ int main() {
     printf("... must be fully parenthesized to give proper results.\n\n");
 
 
-    printf("C does not specify the order in which the operands of an operator are evaluated. (The exceptions are"
+    printf("C does not specify the order in which the operands of an operator are evaluated. (The exceptions are "
            "&&, ||, ?:, and \',\'.)\n\nFor example, in a statement like\n\nx = f() + g()\n\n");
 
     printf("f may be evaluated before g or vice versa; thus if either f or g alters a variable on which the other\n");
     printf("depends, x can depend on the order of evaluation. Intermediate results should be stored in temporary\n");
     printf("variables to ensure a particular sequence.\n\n");
 
-    printf("Similarly, the order in which functions arguments are evaluated is not specified.\n\n");
+    printf("Similarly, the order in which function arguments are evaluated is not specified.\n\n");
     printf("Statements like\n\nprintf(\"%%d %%d\\n\", ++n, power(2, n));\n\n");
     printf("can produce different results with different compilers, depending on whether n is incremented before power is called.\n\n");
     printf("The solution is to write\n\n++n;\nprintf(\"%%d %%d\\n\", n, power(2, n));\n\n");
@@ -1188,12 +1188,13 @@ int main() {
     printf("Function calls, nested assignment statements, and increment and decrement operators cause \"side effects\"--\n");
     printf("some variable is changed as a by-product of the evaluation of an expression.\n");
     printf("There can be subtle dependencies on the order in which variables taking part in the expression are updated.\n\n");
-    printf("Take for example\n\na[i] = i++;\n\nIs the subscript the old value of i or the new?.\n\n");
+    printf("Take for example\n\na[i] = i++;\n\nIs the subscript the old value of i or the new?\n\n");
 
     printf("When side effects (assignment to variables) take place within an expression is left to the discretion of \n");
     printf("the compiler, since the best order depends strongly on the machine architecture.\n");
     printf("(The standard does specify that all side effects on arguments take effect before a function is called).\n\n");
     printf("Writing code that depends on order of evaluation is a bad programming practice in any language.\n");
+    printf("\n\n");
 
     printf("");
     printf("");
