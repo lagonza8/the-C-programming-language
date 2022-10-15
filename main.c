@@ -1161,6 +1161,13 @@ int main() {
 
     printf("\n\n");
 
+
+    //Section 2.12
+    /* */
+    printf("\n\n");
+    printf("Section 2.12 Precedence and Order of Evaluation\n");
+    printf("\n\n");
+
     printf("");
     printf("");
     printf("");
